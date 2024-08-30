@@ -5,8 +5,12 @@ using UnityEngine;
 public class Kiwi : MonoBehaviour
 {   
     private SpriteRenderer sr;
+
     private CircleCollider2D circle;
+
     public GameObject collected;
+
+    public int Score;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,12 @@ public class Kiwi : MonoBehaviour
             sr.enabled = false;
             circle.enabled = false;
             collected.SetActive(true);
-            Destroy(gameObject, 1f);
+
+            GameController.instance.totalScore += Score;
+
+            GameController.instance.UpdateScoreText();
+
+            Destroy(gameObject, 0.25f);
         }
     }
 }

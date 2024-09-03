@@ -75,6 +75,10 @@ public class Player : MonoBehaviour
             isJumping = false;
             anim.SetBool("Bool Jump", false);
         }
+        if(colisor.gameObject.tag == "Spike")
+        {
+          Debug.Log("Tocou o espinho!");
+        }
     }
 
     void OnCollisionExit2D(Collision2D colisor )
